@@ -101,11 +101,9 @@ function main() {
         });
     });
 
-    // Other event listeners and functions as needed
+    // Initialize other event listeners and functions here
 
 }
 
 // Initialize the main function on page load
 document.addEventListener("DOMContentLoaded", main);
-
-main(); // Call main function to start the script
