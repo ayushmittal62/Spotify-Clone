@@ -1,8 +1,7 @@
 let currentSong = new Audio();
 let songs = [];
-let currfolder = "music";  // Default to the "music" folder
+let currfolder = "music";  // Default folder
 
-// Function to convert seconds to minutes:seconds format
 function sectomin(seconds) {
     if (isNaN(seconds) || seconds < 0) {
         return "00:00";
@@ -16,11 +15,10 @@ function sectomin(seconds) {
     return `${formattedmin}:${formattedsec}`;
 }
 
-// Fetch songs from a specific folder within "music"
 async function getSongs(folder) {
     currfolder = folder;
     try {
-        let response = await fetch(`https://ayushmittal62.github.io/Spotify-Clone/music/${folder}/`);
+        let response = await fetch(`https://ayushmittal62.github.io/Spotify-Clone/${folder}/`);
         let text = await response.text();
         let div = document.createElement("div");
         div.innerHTML = text;
@@ -39,10 +37,8 @@ async function getSongs(folder) {
     }
 }
 
-
-// Function to play music
 const playMusic = (track, pause = false) => {
-    currentSong.src = `https://ayushmittal62.github.io/Spotify-Clone/music/${currfolder}/` + track;
+    currentSong.src = `https://ayushmittal62.github.io/Spotify-Clone/${currfolder}/` + track;
     if (!pause) {
         currentSong.play();
         document.getElementById("play").src = "icons/pause.svg";
@@ -54,7 +50,6 @@ const playMusic = (track, pause = false) => {
     document.querySelector(".time").innerHTML = "00:00 / 00:00";
 }
 
-// Function to load songs from a subfolder within "music"
 async function loadSongs(folder) {
     songs = await getSongs(folder);
     if (songs.length > 0) {
@@ -87,20 +82,16 @@ async function loadSongs(folder) {
     });
 }
 
-// Main function to set up event listeners
 function main() {
-    const playButton = document.getElementById("play");
-    if (playButton) {
-        playButton.addEventListener("click", () => {
-            if (currentSong.paused) {
-                currentSong.play();
-                document.getElementById("play").src = "icons/pause.svg";
-            } else {
-                currentSong.pause();
-                document.getElementById("play").src = "icons/play.svg";
-            }
-        });
-    }
+    document.getElementById("play").addEventListener("click", () => {
+        if (currentSong.paused) {
+            currentSong.play();
+            document.getElementById("play").src = "icons/pause.svg";
+        } else {
+            currentSong.pause();
+            document.getElementById("play").src = "icons/play.svg";
+        }
+    });
 
     // Add event listener for card clicks to load songs
     Array.from(document.getElementsByClassName("card")).forEach(card => {
@@ -109,10 +100,12 @@ function main() {
             await loadSongs(folder);
         });
     });
+
+    // Other event listeners and functions as needed
+
 }
 
 // Initialize the main function on page load
 document.addEventListener("DOMContentLoaded", main);
-}
 
 main(); // Call main function to start the script
