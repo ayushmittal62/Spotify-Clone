@@ -20,7 +20,7 @@ function sectomin(seconds) {
 async function getSongs(folder) {
     currfolder = folder;
     try {
-        let response = await fetch(`./${currfolder}/`);
+        let response = await fetch(`https://ayushmittal62.github.io/Spotify-Clone/music/${folder}/`);
         let text = await response.text();
         let div = document.createElement("div");
         div.innerHTML = text;
@@ -38,6 +38,7 @@ async function getSongs(folder) {
         return [];
     }
 }
+
 
 // Function to play music
 const playMusic = (track, pause = false) => {
