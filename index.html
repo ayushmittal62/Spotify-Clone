@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="utility.css" />
+    <link rel="icon" href="icons/icon.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="conatiner flex bg-black">
+      <div class="left">
+        <div class="close">
+          <img class="invert" src="icons/cross.svg" alt="close" />
+        </div>
+        <div class="home bg-gray round m-1 p-1">
+          <ul>
+            <li><img class="invert" src="icons/home.svg" alt="home" />Home</li>
+          </ul>
+          <ul>
+            <li>
+              <img class="invert" src="icons/search.svg" alt="Search" />Search
+            </li>
+          </ul>
+        </div>
+        <div class="library bg-gray round m-1 p-1">
+          <div class="heading">
+            <ul>
+              <li>
+                <img class="invert" src="icons/library.svg" alt="Library" />Your
+                Library
+              </li>
+            </ul>
+          </div>
+          <br />
+          <div class="songlist">
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+      <div class="right bg-gray round">
+        <div class="header">
+          <div class="nav">
+            <img
+              class="invert hamburger"
+              src="icons/hamburger.svg"
+              alt="hamburger"
+            />
+            <img class="invert" src="icons/left.svg" alt="left-but" />
+            <img
+              class="invert"
+              src="icons/right-button.svg"
+              alt="right-button"
+            />
+          </div>
+          <div class="buttons">
+            <button class="sign-btn">Sign up</button>
+            <button class="login-btn">Login</button>
+          </div>
+        </div>
+        <div class="playlist">
+          <h1>Baction Music Player</h1>
+          <br />
+          <div class="cardContainer">
+            <div data-folder="music/90s" class="card">
+              <div  class="play">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 40 40" 
+                  width="50"
+                  height="50"
+                >
+                  <path
+                    d="M24.3906 20.846C24.0371 22.189 22.3667 23.138 19.0257 25.0361C15.796 26.8709 14.1812 27.7884 12.8798 27.4196C12.3418 27.2671 11.8516 26.9776 11.4562 26.5787C10.5 25.6139 10.5 23.7426 10.5 20C10.5 16.2574 10.5 14.3861 11.4562 13.4213C11.8516 13.0224 12.3418 12.7329 12.8798 12.5804C14.1812 12.2116 15.796 13.1291 19.0257 14.9639C22.3667 16.862 24.0371 17.811 24.3906 19.154C24.5365 19.7084 24.5365 20.2916 24.3906 20.846Z"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    fill=""
+                  />
+                </svg>
+              </div>
+              <img
+                src="photos/90s.jpg"
+                alt="Animal"
+              />
+              <h2>90s HITS</h2>
+              <p>Kumar Sanu. ...
+                Alka Yagnik. ...
+                S.P. ...
+                Sonu Nigam. ...
+                Kavita Krishnamurthy. ...</p>
+            </div>
+
+
+
+            <div  data-folder="music/rock" class="card">
+              <div class="play">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 40 40"
+                  width="50"
+                  height="50"
+                >
+                  <path
+                    d="M24.3906 20.846C24.0371 22.189 22.3667 23.138 19.0257 25.0361C15.796 26.8709 14.1812 27.7884 12.8798 27.4196C12.3418 27.2671 11.8516 26.9776 11.4562 26.5787C10.5 25.6139 10.5 23.7426 10.5 20C10.5 16.2574 10.5 14.3861 11.4562 13.4213C11.8516 13.0224 12.3418 12.7329 12.8798 12.5804C14.1812 12.2116 15.796 13.1291 19.0257 14.9639C22.3667 16.862 24.0371 17.811 24.3906 19.154C24.5365 19.7084 24.5365 20.2916 24.3906 20.846Z"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    fill=""
+                  />
+                </svg>
+              </div>
+              <img
+                  src="photos/rock.jpg"
+                alt="Animal"
+              />
+              <h2>Jazz</h2>
+              <p>Kurt Elling. ...
+                Nat King Cole. ...
+                Nina Simone. ...
+                Louis Armstrong. ...
+                Sarah Vaughan. ...</p>
+            </div>
+
+            <div data-folder="music/bache_hue" class="card">
+              <div class="play">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 40 40"
+                  width="50"
+                  height="50"
+                >
+                  <path
+                    d="M24.3906 20.846C24.0371 22.189 22.3667 23.138 19.0257 25.0361C15.796 26.8709 14.1812 27.7884 12.8798 27.4196C12.3418 27.2671 11.8516 26.9776 11.4562 26.5787C10.5 25.6139 10.5 23.7426 10.5 20C10.5 16.2574 10.5 14.3861 11.4562 13.4213C11.8516 13.0224 12.3418 12.7329 12.8798 12.5804C14.1812 12.2116 15.796 13.1291 19.0257 14.9639C22.3667 16.862 24.0371 17.811 24.3906 19.154C24.5365 19.7084 24.5365 20.2916 24.3906 20.846Z"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    fill=""
+                  />
+                </svg>
+              </div>
+              <img
+                src="photos/jazz.jpeg"
+                alt="Animal"
+              />
+              <h2>Rock</h2>
+              <p>Freddie Mercury (Queen) ...
+                Robert Plant (Led Zeppelin) ...
+                Mick Jagger (The Rolling Stones) ...
+                Axl Rose (Guns N' Roses) ...</p>
+            </div>
+            <div  data-folder="music/majak" class="card">
+              <div class="play">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 40 40"
+                  width="50"
+                  height="50"
+                >
+                  <path
+                    d="M24.3906 20.846C24.0371 22.189 22.3667 23.138 19.0257 25.0361C15.796 26.8709 14.1812 27.7884 12.8798 27.4196C12.3418 27.2671 11.8516 26.9776 11.4562 26.5787C10.5 25.6139 10.5 23.7426 10.5 20C10.5 16.2574 10.5 14.3861 11.4562 13.4213C11.8516 13.0224 12.3418 12.7329 12.8798 12.5804C14.1812 12.2116 15.796 13.1291 19.0257 14.9639C22.3667 16.862 24.0371 17.811 24.3906 19.154C24.5365 19.7084 24.5365 20.2916 24.3906 20.846Z"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    fill=""
+                  />
+                </svg>
+              </div>
+              <img
+                src="photos/songs.jpg"
+                alt="Animal"
+              />
+              <h2>Bollywood</h2>
+              <p>Freddie Mercury (Queen) ...
+                Robert Plant (Led Zeppelin) ...
+                Mick Jagger (The Rolling Stones) ...
+                Axl Rose (Guns N' Roses) ...</p>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+          </div>
+
+          <div class="playbar">
+            <div class="seekbar">
+              <div class="circle"></div>
+            </div>
+            <div class="abovebar">
+              <div class="songinfo"></div>
+              <div class="playbtn">
+                <img id="previous" src="icons/previous.svg" alt="previousbtn" />
+                <img id="play" src="icons/play.svg" alt="playbtn" />
+                <img id="next" src="icons/next.svg" alt="mextbtn" />
+              </div>
+              <div class="time"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
