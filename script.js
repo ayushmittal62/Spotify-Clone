@@ -113,5 +113,6 @@ function main() {
 
 // Initialize the main function on page load
 document.addEventListener("DOMContentLoaded", main);
+}
 
 main(); // Call main function to start the script
