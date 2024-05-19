@@ -166,6 +166,18 @@ function main() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    document.addEventListener("DOMContentLoaded", function() {
+    const playButton = document.getElementById("play");
+    if (playButton) {
+        playButton.addEventListener("click", function() {
+            // Your click event handler code
+        });
+    } else {
+        console.error("Element with ID 'play' not found.");
+    }
+});
+
+
 }
 
 async function uploadSong(file) {
