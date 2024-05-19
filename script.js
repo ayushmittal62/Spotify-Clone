@@ -18,7 +18,7 @@ function sectomin(seconds) {
 async function getSongs(folder) {
     currfolder = folder;
     try {
-        let response = await fetch(`http://127.0.0.1:3000/${folder}/`);
+        let response = await fetch(`./${folder}/`);
         let text = await response.text();
         let div = document.createElement("div");
         div.innerHTML = text;
@@ -38,7 +38,7 @@ async function getSongs(folder) {
 }
 
 const playMusic = (track, pause = false) => {
-    currentSong.src = `http://127.0.0.1:3000/${currfolder}/` + track;
+    currentSong.src = `./${currfolder}/` + track;
     if (!pause) {
         currentSong.play();
         document.getElementById("play").src = "icons/pause.svg";
