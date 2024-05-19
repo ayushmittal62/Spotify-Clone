@@ -1,7 +1,8 @@
 let currentSong = new Audio();
 let songs = [];
-let currfolder = "";  // No default folder
+let currfolder = "music";  // Default to the "music" folder
 
+// Function to convert seconds to minutes:seconds format
 function sectomin(seconds) {
     if (isNaN(seconds) || seconds < 0) {
         return "00:00";
@@ -15,10 +16,11 @@ function sectomin(seconds) {
     return `${formattedmin}:${formattedsec}`;
 }
 
+// Fetch songs from a specific folder within "music"
 async function getSongs(folder) {
     currfolder = folder;
     try {
-        let response = await fetch(`./${folder}/`);
+        let response = await fetch(`./${currfolder}/${folder}/`); // Relative path to the subfolder within "music"
         let text = await response.text();
         let div = document.createElement("div");
         div.innerHTML = text;
@@ -37,8 +39,9 @@ async function getSongs(folder) {
     }
 }
 
+// Function to play music
 const playMusic = (track, pause = false) => {
-    currentSong.src = `./${currfolder}/` + track;
+    currentSong.src = `./${currfolder}/${currfolder}/` + track; // Relative path to the song in the current subfolder
     if (!pause) {
         currentSong.play();
         document.getElementById("play").src = "icons/pause.svg";
@@ -50,6 +53,7 @@ const playMusic = (track, pause = false) => {
     document.querySelector(".time").innerHTML = "00:00 / 00:00";
 }
 
+// Function to load songs from a subfolder within "music"
 async function loadSongs(folder) {
     songs = await getSongs(folder);
     if (songs.length > 0) {
@@ -81,7 +85,6 @@ async function loadSongs(folder) {
         });
     });
 }
-
 function main() {
     document.getElementById("play").addEventListener("click", () => {
         if (currentSong.paused) {
