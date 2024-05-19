@@ -41,7 +41,7 @@ async function getSongs(folder) {
 
 // Function to play music
 const playMusic = (track, pause = false) => {
-    currentSong.src = `./${currfolder}/${currfolder}/` + track;
+    currentSong.src = `./${currfolder}/` + track;
     if (!pause) {
         currentSong.play();
         document.getElementById("play").src = "icons/pause.svg";
@@ -88,15 +88,18 @@ async function loadSongs(folder) {
 
 // Main function to set up event listeners
 function main() {
-    document.getElementById("play").addEventListener("click", () => {
-        if (currentSong.paused) {
-            currentSong.play();
-            document.getElementById("play").src = "icons/pause.svg";
-        } else {
-            currentSong.pause();
-            document.getElementById("play").src = "icons/play.svg";
-        }
-    });
+    const playButton = document.getElementById("play");
+    if (playButton) {
+        playButton.addEventListener("click", () => {
+            if (currentSong.paused) {
+                currentSong.play();
+                document.getElementById("play").src = "icons/pause.svg";
+            } else {
+                currentSong.pause();
+                document.getElementById("play").src = "icons/play.svg";
+            }
+        });
+    }
 
     // Add event listener for card clicks to load songs
     Array.from(document.getElementsByClassName("card")).forEach(card => {
@@ -105,9 +108,10 @@ function main() {
             await loadSongs(folder);
         });
     });
+}
 
-    // Initialize the main function on page load
-    document.addEventListener("DOMContentLoaded", main);
+// Initialize the main function on page load
+document.addEventListener("DOMContentLoaded", main);
 }
 
 main(); // Call main function to start the script
