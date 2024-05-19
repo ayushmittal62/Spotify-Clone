@@ -42,7 +42,7 @@ async function getSongs(folder) {
 
 // Function to play music
 const playMusic = (track, pause = false) => {
-    currentSong.src = `./${currfolder}/` + track;
+    currentSong.src = `https://ayushmittal62.github.io/Spotify-Clone/music/${currfolder}/` + track;
     if (!pause) {
         currentSong.play();
         document.getElementById("play").src = "icons/pause.svg";
@@ -113,6 +113,5 @@ function main() {
 
 // Initialize the main function on page load
 document.addEventListener("DOMContentLoaded", main);
-}
 
 main(); // Call main function to start the script
