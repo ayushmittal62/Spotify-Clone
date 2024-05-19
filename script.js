@@ -107,3 +107,16 @@ function main() {
 
 // Initialize the main function on page load
 document.addEventListener("DOMContentLoaded", main);
+function main() {
+    document.getElementById("play").addEventListener("click", () => {
+        if (currentSong.paused) {
+            currentSong.play();
+            document.getElementById("play").src = "icons/pause.svg";
+        } else {
+            currentSong.pause();
+            document.getElementById("play").src = "icons/play.svg";
+        }
+    });
+
+    // Other event listeners and functions as needed
+}
