@@ -1,35 +1,9 @@
-let currentSong = new Audio();
-let songs = [];
-let currfolder = "github.com/ayushmittal62/Spotify-Clone/tree/main/music";  // No default folder
-
-function sectomin(seconds) {
-    if (isNaN(seconds) || seconds < 0) {
-        return "00:00";
-    }
-    const minutes = Math.floor(seconds / 60);
-    const remainsec = Math.floor(seconds % 60);
-
-    const formattedmin = String(minutes).padStart(2, '0');
-    const formattedsec = String(remainsec).padStart(2, '0');
-
-    return `${formattedmin}:${formattedsec}`;
-}
-
 async function getSongs(folder) {
     currfolder = folder;
     try {
-        let response = await fetch(`github.com/ayushmittal62/Spotify-Clone/tree/main/${folder}/`);
-        let text = await response.text();
-        let div = document.createElement("div");
-        div.innerHTML = text;
-        let as = div.getElementsByTagName("a");
-        songs = [];
-        for (let index = 0; index < as.length; index++) {
-            const element = as[index];
-            if (element.href.endsWith(".mp3")) {
-                songs.push(element.href.split(`/${folder}/`)[1]);
-            }
-        }
+        let response = await fetch('songs.json');
+        let data = await response.json();
+        songs = data[folder] || [];
         return songs;
     } catch (error) {
         console.error("Error fetching songs:", error);
@@ -38,7 +12,7 @@ async function getSongs(folder) {
 }
 
 const playMusic = (track, pause = false) => {
-    currentSong.src = `github.com/ayushmittal62/Spotify-Clone/tree/main/${currfolder}/` + track;
+    currentSong.src = `music/${currfolder}/` + track;
     if (!pause) {
         currentSong.play();
         document.getElementById("play").src = "icons/pause.svg";
